@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>마나보자</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+      .banner-section {
+        max-width: 1300px;
+        margin: 20px auto;
+        padding: 0 10px;
+      }
+      .banner-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
+      }
+      .banner-grid .banner_m {
+        width: 100%;
+        background-color: transparent;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .banner-grid .banner_m img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 4px;
+        display: block;
+      }
+      .banner-full {
+        margin-top: 10px;
+        text-align: center;
+      }
+      .banner-full img {
+        width: 100%;
+        max-width: 1300px;
+        height: auto;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+      @media (max-width: 768px) {
+        .banner-grid {
+          grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+        }
+      }
+      .iframe-container {
+        margin-top: 10px;
+        width: 100%;
+        overflow: hidden;
+      }
+      .iframe-wrapper {
+        max-width: 1300px;
+        margin: -200px auto 0;
+        padding: 0 10px;
+        position: relative;
+        z-index: 0;
+      }
+      .iframe-wrapper iframe {
+        width: 100%;
+        height: 8000px;
+        border: none;
+        margin-top: -660px;
+        display: block;
+        position: relative;
+        z-index: -20;
+      }
+      nav ul li a {
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 고정 상단 네비게이션 바 -->
+    <nav
+      style="
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        height: 60px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        top: 0px;
+        border-width: 0 0 1px;
+        position: fixed;
+        right: 0px;
+        left: 0px;
+        z-index: 1030;
+        background: #fff;
+        border-color: #e7e7e7;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+      " 
+    >
+      <div
+        style="
+          max-width: 1300px;
+          margin: 0 auto;
+          padding: 0 15px;
+          display: flex;
+          align-items: center;
+          height: 100%;
+        "
+        
+      >
+        <a
+          href="https://manaboza.xyz/"
+          style="display: flex; align-items: center"
+        >
+          <img
+            src="img/logo.png"
+            alt="마나보자"
+            title="마나보자"
+            style="height: 35px; margin-right: 10px"
+          />
+        </a>
+        <ul
+          style="
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            flex: 1;
+          "
+        >
+          <li>
+            <a
+              href=""
+              style="text-decoration: none; color: #b4a90c"
+              >웹툰</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://funbe541.com/토토보증업체1BET1"
+              target="_blank"
+              style="text-decoration: none; color: #333"
+              >토토보증업체 [YESBET]</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://t.me/manaboza"
+              target="_blank"
+              style="text-decoration: none; color: #333"
+              >주소알림</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://t.me/manaboza"
+              target="_blank"
+              style="text-decoration: none; color: #333"
+              >고객센터</a
+            >
+          </li>
+        </ul>
+        <form
+          method="get"
+          action="https://funbe541.com/bbs/search.php"
+          style="display: flex; align-items: center"
+        >
+          <input type="hidden" name="sfl" value="wr_subject||wr_content" />
+          <input
+            type="text"
+            name="stx"
+            placeholder="제목/작품 검색"
+            maxlength="20"
+            style="
+              padding: 5px 10px;
+              border: 1px solid #ccc;
+              border-radius: 30px 0 0 30px;
+              height: 30px;
+            "
+          />
+          <button
+            type="submit"
+            style="
+              height: 30px;
+              border: 1px solid #333;
+              background: #333;
+              color: #fff;
+              border-radius: 0 30px 30px 0;
+              padding: 0 12px;
+            "
+          >
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- 본문 내용이 가려지지 않도록 상단 패딩 -->
+    <div style="height: 80px"></div>
+
+    <!-- 배너 영역 -->
+    <div class="banner-section">
+      <div class="banner-grid">
+        <div class="banner_m">
+          <a href="https://yes2.bet/?referral=FFFF" target="_blank"
+            ><img src="img/yesbet 460x120_2.png" alt="배너1"
+          /></a>
+        </div>
+        <div class="banner_m">
+          <a href="http://ve-r260.com/login.asp" target="_blank"
+            ><img src="img/venus 460x120.gif" alt="배너2"
+          /></a>
+        </div>
+        <div class="banner_m">
+          <a href="https://lula.bet/Main" target="_blank"
+            ><img src="img/LULA 460x120.gif" alt="배너3"
+          /></a>
+        </div>
+        <div class="banner_m">
+          <a href="https://eve1.bet/?referral=ffff" target="_blank"
+            ><img src="img/eve bet 460x120_2.png" alt="배너3"
+          /></a>
+        </div>
+      </div>
+      <div class="banner-full">
+        <a href="https://yes2.bet/?referral=FFFF" target="_blank"
+            ><img src="img/yesbet 1370x120.png" alt="롱배너" />
+      </div>
+    </div>
+
+    <div class="iframe-container">
+      <div class="iframe-wrapper">
+        <iframe
+          id="mainFrame"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          scrolling="no"
+          src="https://funbe541.com/웹툰"
+        ></iframe>
+      </div>
+    </div>
+    <script>
+      function loadIframe(url) {
+        document.getElementById("mainFrame").src = url;
+      }
+    </script>
+  </body>
+</html>
