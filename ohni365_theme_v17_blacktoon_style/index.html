@@ -1,374 +1,428 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
-    />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="preload" as="image" href="img/logo.png" />
+    <link rel="preload" as="image" href="img/logo.webp" />
     <title>마나보자</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-      * {
+      body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        width: 100%;
-        overflow-x: hidden;
-        background: #f1f1f1;
-      }
-      body {
-        font-family: "Microsoft YaHei";
-        font-size: 12px;
-        color: #999;
-        max-width: 100%;
-        margin: 0 auto;
-      }
-
-      header.stui-header__top {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 60px;
-        background: #ffd111 !important;
-        z-index: 999;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-      }
-      .logo-menu-wrapper {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-      .stui-header__logo {
-        margin-left: -20px;
-      }
-      .stui-header__logo a {
-        display: block;
-        width: 150px;
-        height: 50px;
-        background: url("img/logo1.png") no-repeat center/contain;
-        background-size: cover;
-      }
-      .stui-header__menu {
-        display: flex;
-        gap: 18px;
-        align-items: center;
-        list-style: none;
-      }
-      .stui-header__menu li a {
-        color: rgb(12, 12, 12);
-        text-decoration: none;
-        font-size: 14px;
-        padding: 5px 0;
-        transition: color 0.2s, border-bottom 0.2s;
-      }
-      .stui-header__menu li a:hover,
-      .stui-header__menu li.active a {
-        color: orange;
-        border-bottom: 2px solid orange;
-      }
-      .stui-header__menu img {
-        width: 16px;
-        margin-right: 3px;
-        vertical-align: middle;
-      }
-      .stui-header__search {
-        display: flex;
-        align-items: center;
+        font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
         background: #fff;
-        border-radius: 3px;
-        padding: 2px 5px;
       }
-      .stui-header__search input {
+      .header-wrap {
+        width: 100%;
+        background: #fff;
+        border-bottom: 0;
+        position: relative;
+        top: 0px;
+        z-index: 1200;
+        transition: top 0.25s cubic-bezier(0.44, 0.12, 0.25, 1);
+        box-shadow: 0 2px 10px 0 rgba(50, 60, 90, 0.04);
+      }
+      .topbar {
+        max-width: 1000px;
+        height: 60px;
+        margin: 0 auto;
+        padding: 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-bg {
+        display: block;
+        width: 106px;
+        height: 48px;
+        background: url("img/logo.png") no-repeat left center;
+        background-size: contain;
+        color: transparent;
+        text-indent: -9999px;
         border: none;
-        outline: none;
-        font-size: 13px;
-        padding: 5px;
-        width: 180px;
+        padding: 0;
+        margin: 0;
       }
-      .stui-header__search button {
+      .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+      }
+      .header-icon-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #666;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        gap: 2px;
+        letter-spacing: -0.05em;
         background: none;
         border: none;
+        outline: none;
         cursor: pointer;
-        color: rgb(255, 0, 0);
-        font-size: 16px;
+        padding: 0;
       }
-      .spacer {
-        height: 60px;
-      }
-
-      .banner-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        max-width: 1215px;
-        margin: 10px auto;
-        padding: 0 10px;
-      }
-      .banner-grid img {
-        width: 100%;
+      .header-icon-link img {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 2px;
         display: block;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s, box-shadow 0.3s;
       }
-      .banner-grid a:hover img {
-        transform: scale(1.03);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      .header-icon-link span {
+        font-size: 11.5px;
+        font-weight: 400;
+        color: #666;
+        margin-top: -3px;
+      }
+      .menu-btn {
+        background: none;
+        border: none;
+      }
+      .top-line,
+      .bottom-line {
+        width: 100%;
+        height: 1px;
+        background: #e5e7ea;
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+      .desktop-menu {
+        width: 100%;
+        background: #fff;
+        font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial,
+          sans-serif;
+      }
+      .desktop-menu ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 54px;
+        gap: 100px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .desktop-menu li {
+        display: flex;
+        align-items: center;
+      }
+      .menu-link {
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+        color: #212121;
+        padding: 0 13px;
+        background: none;
+        border: none;
+        border-radius: 0;
+        text-decoration: none;
+        transition: color 0.17s;
+        line-height: 1;
+        box-shadow: none;
+        letter-spacing: -0.5px;
+      }
+      .menu-link:hover,
+      .menu-link.active {
+        color: #7a36ff;
+        background: none;
+      }
+      .menu-link:after,
+      .menu-link.active:after {
+        display: none !important;
+      }
+      @keyframes underline {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
       }
 
-      .slide-show {
+      /* 배너 영역 전체 배경 */
+      .banner-bg {
+        width: 100vw;
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        z-index: 10;
         position: relative;
-        width: 100%;
-        max-width: 1200px;
-        height: 100px;
-        margin: 10px auto;
+      }
+      .top-banners {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 18px 0 10px 0;
+        display: flex;
+        gap: 18px;
+        justify-content: center;
+        align-items: center;
+      }
+      .top-banner-item {
+        display: block;
+        width: 245px; /* ← 245px → 230px */
+        height: 105px; /* ← 95px → 78px */
+        border: 1.5px solid #e5e5e5;
+        border-radius: 8px;
+        background: #fff;
         overflow: hidden;
+        box-sizing: border-box;
       }
-      .slide-show .slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        animation: slideAnim 12s infinite;
-      }
-      .slide-show .slide:nth-child(1) {
-        animation-delay: 0s;
-      }
-      .slide-show .slide:nth-child(2) {
-        animation-delay: 3s;
-      }
-      .slide-show .slide:nth-child(3) {
-        animation-delay: 6s;
-      }
-      .slide-show .slide:nth-child(4) {
-        animation-delay: 9s;
-      }
-      @keyframes slideAnim {
-        0%,
-        25% {
-          opacity: 1;
-        }
-        30%,
-        100% {
-          opacity: 0;
-        }
-      }
-      .slide-show img {
+      .top-banner-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 8px;
         display: block;
+        background: #fff;
+      }
+
+      .iframe-container {
+        position: relative;
+        z-index: 1;
+        margin-top: -175px; /* 배너 높이만큼 음수! */
       }
 
       .iframe-wrapper {
-        width: 100%;
-        height: 10000px;
-        overflow: hidden;
+        max-width: 100%;
+        margin: 5 auto;
+        padding: 0 10px;
         position: relative;
-        background-color: #ffffff;
+        z-index: 0;
       }
       .iframe-wrapper iframe {
-        position: absolute;
-        top: -340px;
-        left: 0;
         width: 100%;
-        height: 100%;
+        height: 8000px;
         border: none;
-      }
-
-      .popup_left,
-      .popup_right {
         display: block;
-        position: fixed;
-        bottom: 30px;
-        width: auto;
-        background: rgba(30, 30, 30, 0.9);
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-        z-index: 9999;
+        position: relative;
+        z-index: 0;
+        background: #fff;
       }
-      .popup_left {
-        left: 10px;
-      }
-      .popup_right {
-        right: 10px;
-      }
-      .popup_left img,
-      .popup_right img {
-        display: block;
-        max-width: 150px;
-        border-radius: 4px;
-      }
-      .bottom {
-        margin-top: 8px;
-        text-align: center;
-        font-size: 11px;
-        color: #eee;
-      }
-      .check,
-      .xi-close {
-        cursor: pointer;
-        color: #ccc;
-        margin: 0 5px;
-      }
-      .check:hover,
-      .xi-close:hover {
-        color: #fff;
-      }
-
-      @media (max-width: 768px) {
-        .popup_left,
-        .popup_right {
-          display: none;
+      @media (max-width: 900px) {
+        .topbar,
+        .desktop-menu {
+          max-width: 100vw;
+          padding: 0 8px;
         }
+        .desktop-menu ul {
+          gap: 12px;
+          height: 40px;
+        }
+        .menu-link {
+          font-size: 14px;
+          padding: 7px 10px;
+        }
+        .top-banners {
+          gap: 8px;
+        }
+        .top-banner-item {
+          max-width: 120px;
+          height: 66px;
+          border-radius: 7px;
+        }
+        .logo-bg {
+          height: 34px;
+          width: 76px;
+          background-size: 100% auto;
+        }
+      }
+      @media (max-width: 600px) {
+        .logo-bg {
+          height: 24px;
+          width: 58px;
+        }
+        .iframe-container {
+          margin-top: -28px;
+        }
+      }
+      .top-banners.banner-epview-fix {
+        position: fixed !important;
+        top: 140px !important;
+        left: 0 !important;
+        width: 100vw !important;
+        z-index: 9999 !important;
+        background: #fff !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
       }
     </style>
   </head>
   <body>
-    <header class="stui-header__top">
-      <div class="container">
-        <div class="logo-menu-wrapper">
-          <div class="stui-header__logo"><a href="/"></a></div>
-          <ul class="stui-header__menu">
-            <li class="active"><a href="/">홈</a></li>
-            <li>
-              <a href="javascript:loadIframe('https://funbe486.com/manhwa')"
-                >만화</a
-              >
-            </li>
-            <li>
-              <a href="javascript:loadIframe('https://funbe486.com/webtoon')"
-                >웹툰</a
-              >
-            </li>
-            <li>
-              <a href="javascript:loadIframe('https://funbe486.com/book')"
-                >소설</a
-              >
-            </li>
-            <li>
-              <a href="https://wikitv.xyz/">영화/드라마/예능</a>
-            </li>
-            <li>
-              <a href="https://t.me/wikitv24"
-                ><img
-                  src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-                  alt="Telegram"
-                />광고문의</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="stui-header__search">
-          <input type="text" placeholder="연관검색어를 입력하세요" />
-          <button type="submit">🔍</button>
+    <!-- 1. 상단 헤더 -->
+    <header id="header" class="header-wrap">
+      <div class="topbar">
+        <a href="/" class="logo-bg">마나보자</a>
+        <div class="header-icons">
+          <a href="#" class="header-icon-link">
+            <img src="img/icon_mylibrary.png" alt="내서재" />
+            <span>내서재</span>
+          </a>
+          <a href="#" class="header-icon-link">
+            <img src="img/icon_search.png" alt="검색" />
+            <span>검색</span>
+          </a>
+          <a href="#" class="header-icon-link">
+            <img src="img/icon_headmenu.png" alt="메뉴" />
+            <span>메뉴</span>
+          </a>
         </div>
       </div>
+      <div class="top-line"></div>
+      <nav class="desktop-menu">
+        <ul>
+          <li>
+            <a
+              href="#"
+              class="menu-link active"
+              onclick="menuClick(event, 'https://www.manaboza82.com/weekly#weekly6')"
+              >연재</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="menu-link"
+              onclick="menuClick(event, 'https://www.manaboza82.com/ranking#ranking1')"
+              >TOP100</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="menu-link"
+              onclick="menuClick(event, 'https://www.manaboza82.com/waitfree#waitfree1')"
+              >신작만화</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="menu-link"
+              onclick="menuClick(event, 'https://www.manaboza82.com/waitfree#waitfree1')"
+              >이벤트</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="menu-link"
+              onclick="menuClick(event, 'https://www.manaboza82.com/remake#remake1')"
+              >단행본</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://t.me/manaboza"
+              class="menu-link"
+              target="_blank"
+              rel="noopener"
+              >고객센터</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="bottom-line"></div>
     </header>
-    <div class="spacer"></div>
-
-    <!-- 배너 1열 -->
-    <div class="banner-grid">
-      <a href="https://yes2.bet/?referral=FFFF"
-        ><img src="img/yesbet 460x120_2.png" alt="배너1"
-      /></a>
-      <a href="https://eve1.bet/?referral=ffff"
-        ><img src="img/eve bet 460x120_2.png" alt="배너2"
-      /></a>
-      <a href="http://ve-r260.com/login.asp"
-        ><img src="img/venus 460x120.gif" alt="배너3"
-      /></a>
-      <a href="https://lula.bet/Main"
-        ><img src="img/LULA 460x120.gif" alt="배너4"
-      /></a>
-    </div>
-
-    <!-- 슬라이드 배너 -->
-    <div class="slide-show">
-      <a href="https://yes2.bet/?referral=FFFF" class="slide"
-        ><img src="img/yesbet_1200x100.png" alt="슬라이드1"
-      /></a>
-      <a href="http://ve-r260.com/login.as" class="slide"
-        ><img src="img/venus_resized_1200x100.gif" alt="슬라이드2"
-      /></a>
-      <a href="https://yes2.bet/?referral=FFFF" class="slide"
-        ><img src="img/yesbet_1200x100.png" alt="슬라이드3"
-      /></a>
-      <a href="http://ve-r260.com/login.as" class="slide"
-        ><img src="img/venus_resized_1200x100.gif" alt="슬라이드4"
-      /></a>
-    </div>
-
-    <!-- iframe -->
-    <div class="iframe-wrapper">
-      <iframe
-        id="mainFrame"
-        src="https://funbe486.com/webtoon"
-        sandbox="allow-same-origin allow-scripts allow-forms"
-        scrolling="no"
-        style="overflow: hidden"
-      ></iframe>
-    </div>
-
-    <div class="popup_left">
-      <a href="https://t.me/wikitv24"><img src="img/c1WBX24x_o.jpg" /></a>
-      <div class="bottom">
-        <span class="check">✔ 오늘 그만보기</span>
-        <span class="xi-close">✖</span>
+    <!-- 2. 배너 (항상 아이프레임 위) -->
+    <div class="banner-bg">
+      <div class="top-banners">
+        <div class="top-banner-item">
+          <a href="https://lula.bet/Main" target="_blank" rel="noopener">
+            <img
+              src="img/LULA460x120-ezgif.com-resize.gif"
+              alt="사이트제작전문업체 포유소프트"
+            />
+          </a>
+        </div>
+        <div class="top-banner-item">
+          <a href="https://sm-mmm.com" target="_blank" rel="noopener">
+            <img
+              src="https://wwwimageup.angle777899.com/other/atoona/290x125[CKCK].gif"
+              alt="토지노 추천 스마일 추천인코드 CKCK"
+            />
+          </a>
+        </div>
+        <div class="top-banner-item">
+          <a href="http://nrt-112.com" target="_blank" rel="noopener">
+            <img
+              src="https://wwwimageup.angle777899.com/other/atoona/9099.gif"
+              alt="쿡마나 추천 토지노 사이트 나루토 카지노 테더 입금가능 추천인코드 9099"
+            />
+          </a>
+        </div>
+        <div class="top-banner-item">
+          <a
+            href="https://xn--h49an02b8xa56g.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="img/111111.png"
+              alt="쿡마나 cookmana 추천 토지노 엑스칼리버 신규 첫충 100% 코드:M707"
+            />
+          </a>
+        </div>
       </div>
     </div>
-    <div class="popup_right">
-      <a href="https://t.me/wikitv24"><img src="img/c1WBX24x_o.jpg" /></a>
-      <div class="bottom">
-        <span class="check">✔ 오늘 그만보기</span>
-        <span class="xi-close">✖</span>
+    <!-- 3. 아이프레임(설정 그대로) -->
+    <div class="iframe-container">
+      <div class="iframe-wrapper">
+        <iframe
+          id="mainFrame"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          scrolling="no"
+          src="https://www.manaboza82.com/"
+        ></iframe>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script>
-      function loadIframe(url) {
+      // 메뉴 클릭시 아이프레임 변경 + 메뉴 active 처리
+      function menuClick(event, url) {
+        event.preventDefault();
         document.getElementById("mainFrame").src = url;
+        // 메뉴 active 효과(PC)
+        var links = document.querySelectorAll(".desktop-menu .menu-link");
+        links.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+        var banner = document.querySelector(".top-banners");
+        // ep_view(웹툰내용)에서만 배너 완전 fixed & z-index 가장 높게
+        if (url.includes("/comic/ep_view/")) {
+          banner.classList.add("banner-epview-fix");
+        } else {
+          banner.classList.remove("banner-epview-fix");
+        }
       }
-      function closePopupNotice(c) {
-        var d = new Date();
-        d.setTime(d.getTime() + 12 * 60 * 60 * 1000);
-        $.cookie(c, "done", { expires: d });
-        return closePopup(c);
+
+      // 메뉴 클릭 함수와 별도로, 아래 코드도 추가!
+      const frame = document.getElementById("mainFrame");
+      const banner = document.querySelector(".top-banners");
+
+      function checkBannerPosition() {
+        try {
+          const frameUrl = frame.contentWindow.location.href;
+          if (frameUrl.includes("/comic/ep_view/")) {
+            banner.classList.add("banner-epview-fix");
+          } else {
+            banner.classList.remove("banner-epview-fix");
+          }
+        } catch (e) {
+          // 크로스도메인 fallback
+          if (frame.src.includes("/comic/ep_view/")) {
+            banner.classList.add("banner-epview-fix");
+          } else {
+            banner.classList.remove("banner-epview-fix");
+          }
+        }
       }
-      function closePopup(c) {
-        $("." + c).fadeOut();
-      }
-      $(function () {
-        if ($.cookie("popup_left") != "done") $(".popup_left").fadeIn();
-        var cl = false;
-        $(".popup_left .check").click(() => (cl = true));
-        $(".popup_left .xi-close").click(() => {
-          if (cl) closePopupNotice("popup_left");
-          closePopup("popup_left");
-        });
-        if ($.cookie("popup_right") != "done") $(".popup_right").fadeIn();
-        var cr = false;
-        $(".popup_right .check").click(() => (cr = true));
-        $(".popup_right .xi-close").click(() => {
-          if (cr) closePopupNotice("popup_right");
-          closePopup("popup_right");
-        });
-      });
+
+      frame.addEventListener("load", checkBannerPosition);
     </script>
   </body>
 </html>
