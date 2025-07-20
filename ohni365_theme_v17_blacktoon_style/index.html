@@ -382,6 +382,413 @@
       <div class="iframe-wrapper">
         <iframe
           id="mainFrame"
+          sandbox="allow-same-origin allow-scripts allow-forms"
+          src="https://kmana10.net"
+          style="
+            width: 100%;
+            min-height: 1800px;
+            border: none;
+            background: #fff;
+          "
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+    <script>
+      function menuClick(event, url) {
+        event.preventDefault();
+        document.getElementById("mainFrame").src = url;
+        var links = document.querySelectorAll(".desktop-menu .menu-link");
+        links.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마나보자</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", "Pretendard", Arial, sans-serif;
+        background: #fff;
+      }
+      .header-wrap {
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #ede6fa;
+        position: relative;
+        z-index: 1200;
+        backdrop-filter: blur(8px);
+      }
+      .topbar {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 18px;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+      }
+      .logo-bg {
+        width: 116px;
+        height: 40px;
+        background: url("img/logo.png") no-repeat left center;
+        background-size: contain;
+        text-indent: -9999px;
+        border: none;
+        flex-shrink: 0;
+        margin-right: 0;
+      }
+      .main-nav {
+        display: flex;
+        align-items: center;
+        flex: 0 1 auto;
+        margin-left: 0;
+        margin-right: 300px;
+      }
+      .menu-link.active .underline,
+      .menu-link:hover .underline {
+        opacity: 1;
+      }
+      .menu-link .underline {
+        position: absolute;
+        left: 50%;
+        bottom: -18px;
+        transform: translateX(-50%);
+        width: 58px;
+        height: 6px;
+        border-radius: 2px;
+        background: #ea5a47;
+        opacity: 0;
+        transition: opacity 0.25s;
+        z-index: 3;
+      }
+      .desktop-menu ul {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .menu-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-family: "Inter", "Pretendard", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #222;
+        padding: 8px 16px;
+        background: none;
+        border: none;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+        cursor: pointer;
+      }
+      .menu-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #ff2323;
+        margin-left: 7px;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+      }
+      .menu-link.active,
+      .menu-link:hover {
+        color: #ea5a47;
+        font-weight: 600;
+      }
+      .menu-link .underline {
+        position: absolute;
+        left: 50%;
+        bottom: -18px;
+        transform: translateX(-50%);
+        width: 58px;
+        height: 6px;
+        border-radius: 2px;
+        background: #ea5a47;
+        opacity: 0;
+        transition: opacity 0.25s;
+        z-index: 3;
+      }
+      .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-left: 16px;
+        flex: 0 0 auto;
+      }
+      .header-icon-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #888;
+        font-size: 18px;
+        border-radius: 8px;
+        width: 38px;
+        height: 38px;
+        background: none;
+        transition: none;
+      }
+      .header-icon-link img {
+        width: 23px;
+        height: 23px;
+      }
+      .top-line {
+        width: 100%;
+        height: 1px;
+        background: #ece6ff;
+      }
+      /* ====== 배너 영역 리뉴얼 (아래) ====== */
+      .banner-bg {
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .top-banners {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 11px 0 7px 0;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: #fff;
+      }
+      .top-banner-item {
+        width: 295px;
+        height: 92px;
+        border: 1.2px solid #e5e5e5;
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .top-banner-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        background: #fff;
+      }
+      /* ===================================== */
+      .iframe-container {
+        width: 100vw;
+        background: #fff;
+        margin-top: -70px;
+      }
+      .iframe-wrapper {
+        width: 100%;
+        overflow: visible;
+      }
+      iframe {
+        display: block;
+        width: 100%;
+        min-height: 800px;
+        border: none;
+        background: #fff;
+        overflow: auto;
+      }
+      @media (max-width: 1200px) {
+        .topbar,
+        .top-banners {
+          max-width: 99vw;
+        }
+        .top-banner-item {
+          width: 24vw;
+          min-width: 80px;
+          height: auto;
+          aspect-ratio: 16/5;
+        }
+      }
+      @media (max-width: 900px) {
+        .topbar {
+          padding: 0 7px;
+        }
+        .top-banner-item {
+          width: 48vw;
+        }
+        .logo-bg {
+          width: 80px;
+          height: 28px;
+        }
+        .header-icons {
+          margin-left: 8px;
+        }
+      }
+      @media (max-width: 650px) {
+        .top-banners {
+          gap: 4px;
+        }
+        .top-banner-item {
+          width: 49vw;
+        }
+        .topbar {
+          height: 45px;
+        }
+        .menu-link {
+          font-size: 12px;
+          padding: 7px 8px;
+        }
+      }
+      @media (max-width: 420px) {
+        .top-banners {
+          gap: 3px;
+        }
+        .top-banner-item {
+          width: 98vw;
+        }
+        .logo-bg {
+          width: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="header-wrap">
+      <div class="topbar">
+        <a href="/" class="logo-bg">마나보자</a>
+        <nav class="main-nav desktop-menu">
+          <ul>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://kmana10.net/latest')"
+              >
+                최신만화<span class="menu-dot"></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://kmana10.net/finish')"
+              >
+                완결만화
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://kmana10.net/today100')"
+              >
+                추천만화
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://kmana10.net/arcade')"
+              >
+                고전게임<span class="menu-dot"></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://kmana10.net/community3')"
+              >
+                커뮤니티
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://t.me/manaboza"
+                class="menu-link"
+                target="_blank"
+                rel="noopener"
+              >
+                주소알림
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-icons">
+          <a href="#" class="header-icon-link" title="내서재">
+            <img src="img/icon_mylibrary.png" alt="내서재" />
+          </a>
+          <a href="#" class="header-icon-link" title="검색">
+            <img src="img/icon_search.png" alt="검색" />
+          </a>
+          <a href="#" class="header-icon-link" title="메뉴">
+            <img src="img/icon_headmenu.png" alt="메뉴" />
+          </a>
+        </div>
+      </div>
+      <div class="top-line"></div>
+    </header>
+    <!-- 여기가 NEW 배너 부분 -->
+    <div class="banner-bg">
+      <div class="top-banners">
+        <div class="top-banner-item">
+          <a
+            href="https://eve1.bet/?referral=ffff"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="img/banner1.png" alt="나루토 카지노 배너" />
+          </a>
+        </div>
+        <div class="top-banner-item">
+          <a
+            href="https://yes2.bet/?referral=FFFF"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="img/banner2.png" alt="스마일 스포츠 카지노 배너" />
+          </a>
+        </div>
+        <div class="top-banner-item">
+          <a href="http://ve-r260.com/login.asp" target="_blank" rel="noopener">
+            <img src="img/banner3.png" alt="YESBET 완전무제재 배너" />
+          </a>
+        </div>
+        <div class="top-banner-item">
+          <a
+            href="https://eve1.bet/?referral=ffff"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="img/banner4.png" alt="EVE BET 가입코드 배너" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="iframe-container">
+      <div class="iframe-wrapper">
+        <iframe
+          id="mainFrame"
           sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
           src="https://kmana10.net"
           style="
