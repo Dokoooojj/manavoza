@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>마나보자</title>
+    <title>쿡마나 - 최신만화 일본만화 무료만화 무료웹툰</title>
     <link rel="icon" href="img/favicon.png" type="image/x-icon" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -18,163 +14,214 @@
       body {
         margin: 0;
         padding: 0;
+        width: 100vw;
+        min-width: 0;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: #fff;
       }
       body {
-        font-family: "Inter", "Pretendard", Arial, sans-serif;
+        font-family: "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
         background: #fff;
+        width: 100vw;
+        min-width: 0;
       }
-      .header-wrap {
-        width: 100%;
-        background: #fff;
-        border-bottom: 1px solid #ede6fa;
-        position: relative;
-        z-index: 1200;
-        backdrop-filter: blur(8px);
-      }
-      .topbar {
-        max-width: 1180px;
+      .ot-menu {
         margin: 0 auto;
-        padding: 0 18px;
-        height: 62px;
+        width: 1180px;
+        max-width: 100vw;
+        padding: 6px 0;
+        height: 80px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
+        background: #fff;
+        box-sizing: border-box;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow-x: auto;
+        min-width: 0;
       }
-      .logo-bg {
-        width: 116px;
-        height: 40px;
-        background: url("img/logo.png") no-repeat left center;
-        background-size: contain;
-        text-indent: -9999px;
-        border: none;
-        flex-shrink: 0;
-        margin-right: 0;
-      }
-      .main-nav {
-        display: flex;
-        align-items: center;
-        flex: 0 1 auto;
-        margin-left: 0;
-        margin-right: 300px;
-      }
-      .menu-link.active .underline,
-      .menu-link:hover .underline {
-        opacity: 1;
-      }
-      .menu-link .underline {
-        position: absolute;
-        left: 50%;
-        bottom: -18px;
-        transform: translateX(-50%);
-        width: 58px;
-        height: 6px;
-        border-radius: 2px;
-        background: #ea5a47;
-        opacity: 0;
-        transition: opacity 0.25s;
-        z-index: 3;
-      }
-      .desktop-menu ul {
+      .ot-logo {
         display: flex;
         align-items: center;
         gap: 8px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #4e4557;
+        flex-shrink: 0;
+        min-width: 0;
       }
-      .menu-link {
-        position: relative;
+      .ot-logo img {
+        width: 70px;
+        height: 70px;
+        display: block;
+      }
+      .ot-nav {
+        flex: 1 1 0;
+        min-width: 0;
+        overflow: hidden;
         display: flex;
         align-items: center;
-        font-family: "Inter", "Pretendard", Arial, sans-serif;
-        font-size: 14px;
+        justify-content: flex-start;
+        margin-right: auto;
+      }
+      .ot-nav ul {
+        display: flex;
+        align-items: center;
+        gap: -5px;
+        margin: 5;
+        padding: 0;
+        list-style: none;
+        flex-wrap: nowrap;
+        min-width: 0;
+      }
+      .menu-link {
+        color: #23272a;
+        text-decoration: none;
+        font-family: "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif !important;
+        font-size: 15px !important;
         font-weight: 600;
-        color: #222;
-        padding: 8px 16px;
+        letter-spacing: -0.01em;
+        padding: 12px 20px !important;
+        border-radius: 6px;
         background: none;
         border: none;
-        text-decoration: none;
-        letter-spacing: -0.01em;
-        cursor: pointer;
-      }
-      .menu-dot {
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #ff2323;
-        margin-left: 7px;
-        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        transition: color 0.18s, background 0.18s;
         position: relative;
-        top: -1px;
+        cursor: pointer;
+        line-height: 1.3;
+        white-space: nowrap;
       }
       .menu-link.active,
       .menu-link:hover {
-        color: #ea5a47;
-        font-weight: 600;
+        color: #f74d19 !important;
+        font-weight: 700;
+        background: #faf6f3;
       }
-      .menu-link .underline {
-        position: absolute;
-        left: 50%;
-        bottom: -18px;
-        transform: translateX(-50%);
-        width: 58px;
-        height: 6px;
-        border-radius: 2px;
-        background: #ea5a47;
-        opacity: 0;
-        transition: opacity 0.25s;
-        z-index: 3;
-      }
-      .header-icons {
+
+      .header-right {
         display: flex;
         align-items: center;
-        gap: 12px;
-        margin-left: 16px;
-        flex: 0 0 auto;
+        gap: 0px;
+        flex-shrink: 0;
+        min-width: 0;
       }
-      .header-icon-link {
+      .dark-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: #fff;
+        border: 2px solid #ededed;
+        border-radius: 20px;
+        padding: 3px 13px 3px 3px;
+        height: 38px;
+        cursor: pointer;
+        transition: border 0.2s;
+      }
+      .dark-btn:active,
+      .dark-btn:focus {
+        border: 2px solid #f74d19;
+      }
+      .dark-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #111;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #888;
-        font-size: 18px;
-        border-radius: 8px;
-        width: 38px;
-        height: 38px;
+        position: relative;
+      }
+      .dark-icon::after {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        box-shadow: -2px 2px 0 3px #111;
+      }
+      .dark-label {
+        color: #bbb;
+        font-size: 14px;
+        letter-spacing: -0.5px;
+        margin-left: 2px;
+        font-family: inherit;
+      }
+      .search-box {
+        display: flex;
+        align-items: center;
+        border: 2px solid #222;
+        border-radius: 20px;
+        background: #fff;
+        padding: 0 14px 0 12px;
+        height: 25px;
+        min-width: 170px;
+      }
+      .search-box input {
+        border: none;
+        outline: none;
+        font-size: 15px;
+        font-family: "Noto Sans KR", Arial, sans-serif;
+        padding: 0;
+        background: transparent;
+        min-width: 95px;
+        height: 22px;
+      }
+      .search-icon {
+        width: 19px;
+        height: 19px;
+        background: url('data:image/svg+xml;utf8,<svg fill="none" stroke="black" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>')
+          center/contain no-repeat;
+        margin-left: 150px;
+        display: inline-block;
+      }
+      .menu-btn {
         background: none;
-        transition: none;
+        border: none;
+        padding: 0 0 0 8px;
+        height: 38px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        cursor: pointer;
       }
-      .header-icon-link img {
-        width: 23px;
-        height: 23px;
+      .menu-bar {
+        width: 28px;
+        height: 3px;
+        background: #222;
+        border-radius: 2px;
+        display: block;
       }
-      .top-line {
-        width: 100%;
-        height: 1px;
-        background: #ece6ff;
-      }
-      /* ====== 배너 영역 리뉴얼 (아래) ====== */
       .banner-bg {
-        width: 100%;
+        width: 100vw;
+        max-width: 100vw;
         background: #fff;
         border-bottom: 1px solid #e5e5e5;
       }
       .top-banners {
-        max-width: 1180px;
+        width: 1195px;
+        max-width: 100vw;
         margin: 0 auto;
         padding: 11px 0 7px 0;
         display: flex;
-        gap: 15px;
+        gap: 5px;
         justify-content: center;
         align-items: center;
         position: relative;
         background-color: #fff;
+        margin-top: -10px;
       }
       .top-banner-item {
-        width: 295px;
-        height: 92px;
+        width: 290px;
+        height: 80px;
         border: 1.2px solid #e5e5e5;
         border-radius: 8px;
         background: #fff;
@@ -191,11 +238,10 @@
         display: block;
         background: #fff;
       }
-      /* ===================================== */
       .iframe-container {
         width: 100vw;
         background: #fff;
-        margin-top: -70px;
+        margin-top: -80px;
       }
       .iframe-wrapper {
         width: 100%;
@@ -203,78 +249,118 @@
       }
       iframe {
         display: block;
-        width: 100%;
-        min-height: 800px;
+        width: 100vw;
+        min-width: 0;
+        min-height: 1800px;
         border: none;
         background: #fff;
         overflow: auto;
       }
       @media (max-width: 1200px) {
-        .topbar,
-        .top-banners {
-          max-width: 99vw;
+        .menu-link {
+          font-size: 15px !important;
+          padding: 8px 10px !important;
         }
-        .top-banner-item {
-          width: 24vw;
-          min-width: 80px;
-          height: auto;
-          aspect-ratio: 16/5;
+        .ot-nav ul {
+          gap: 12px;
         }
       }
       @media (max-width: 900px) {
-        .topbar {
-          padding: 0 7px;
+        .ot-menu {
+          max-width: 100vw;
+          padding: 0 10px;
+          height: 54px;
         }
-        .top-banner-item {
-          width: 48vw;
-        }
-        .logo-bg {
-          width: 80px;
+        .ot-logo img {
           height: 28px;
         }
-        .header-icons {
-          margin-left: 8px;
+        .ot-nav ul {
+          gap: 10px;
+        }
+        .menu-link {
+          font-size: 13px !important;
+          padding: 6px 7px !important;
+        }
+        .header-right {
+          gap: 7px;
+          margin-left: 6px;
         }
       }
       @media (max-width: 650px) {
-        .top-banners {
+        .ot-menu {
+          padding: 0 3px;
+          height: 44px;
+        }
+        .ot-logo img {
+          height: 20px;
+        }
+        .ot-nav {
+          display: none;
+        }
+        .header-right {
           gap: 4px;
+          margin-left: 0;
         }
-        .top-banner-item {
-          width: 49vw;
-        }
-        .topbar {
-          height: 45px;
-        }
-        .menu-link {
-          font-size: 12px;
-          padding: 7px 8px;
+        .search-box {
+          min-width: 80px;
+          padding: 0 6px 0 6px;
         }
       }
-      @media (max-width: 420px) {
-        .top-banners {
-          gap: 3px;
-        }
-        .top-banner-item {
-          width: 98vw;
-        }
-        .logo-bg {
-          width: 60px;
-        }
+      .popup-banner {
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        background: #fff;
+        border: 2px solid #333;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5000;
+        display: none;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .popup-banner a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .popup-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 꽉 채우고 비율 유지 */
+        display: block;
+      }
+      .popup-banner .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: none;
+        padding: 4px 8px;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 4px;
       }
     </style>
   </head>
   <body>
-    <header id="header" class="header-wrap">
-      <div class="topbar">
-        <a href="/" class="logo-bg">마나보자</a>
-        <nav class="main-nav desktop-menu">
+    <header>
+      <div class="ot-menu">
+        <!-- 로고 -->
+        <a href="/" class="ot-logo">
+          <img src="img/logo.svg" alt="마나보자 로고" />
+        </a>
+        <!-- 네비게이션 -->
+        <nav class="ot-nav">
           <ul>
             <li>
               <a
                 href="#"
                 class="menu-link"
-                onclick="menuClick(event, 'https://kmana10.net/latest')"
+                onclick="menuClick(event, 'https://www.cookmana.com/lastest')"
               >
                 최신만화<span class="menu-dot"></span>
               </a>
@@ -283,7 +369,16 @@
               <a
                 href="#"
                 class="menu-link"
-                onclick="menuClick(event, 'https://kmana10.net/finish')"
+                onclick="menuClick(event, 'https://www.cookmana.com/popular')"
+              >
+                인기만화
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://www.cookmana.com/finish')"
               >
                 완결만화
               </a>
@@ -292,56 +387,61 @@
               <a
                 href="#"
                 class="menu-link"
-                onclick="menuClick(event, 'https://kmana10.net/today100')"
+                onclick="menuClick(event, 'https://www.cookmana.com/everyday100')"
               >
-                추천만화
+                매일추천100<span class="menu-dot"></span>
               </a>
             </li>
             <li>
               <a
                 href="#"
                 class="menu-link"
-                onclick="menuClick(event, 'https://kmana10.net/arcade')"
-              >
-                고전게임<span class="menu-dot"></span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="menu-link"
-                onclick="menuClick(event, 'https://kmana10.net/community3')"
+                onclick="menuClick(event, 'https://www.cookmana.com/community')"
               >
                 커뮤니티
               </a>
             </li>
             <li>
               <a
-                href="https://manaboza-link.netlify.app/"
+                href="#"
                 class="menu-link"
-                target="_blank"
-                rel="noopener"
+                onclick="menuClick(event, 'https://www.cookmana.com/gossip')"
               >
-                주소알림
+                오류제보
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="menu-link"
+                onclick="menuClick(event, 'https://www.cookmana.com/gossip')"
+              >
+                광고제휴
               </a>
             </li>
           </ul>
         </nav>
-        <div class="header-icons">
-          <a href="#" class="header-icon-link" title="내서재">
-            <img src="img/icon_mylibrary.png" alt="내서재" />
-          </a>
-          <a href="#" class="header-icon-link" title="검색">
-            <img src="img/icon_search.png" alt="검색" />
-          </a>
-          <a href="#" class="header-icon-link" title="메뉴">
-            <img src="img/icon_headmenu.png" alt="메뉴" />
-          </a>
+        <!-- 우측 cookmana-style 유틸 -->
+        <div class="header-right">
+          <!-- 다크모드 버튼 -->
+          <button class="dark-btn">
+            <span class="dark-icon"></span>
+            <span class="dark-label">다크</span>
+          </button>
+          <!-- 검색창 -->
+          <div class="search-box">
+            <span class="search-icon"></span>
+          </div>
+          <!-- 햄버거 메뉴 -->
+          <button class="menu-btn" title="메뉴">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
         </div>
       </div>
-      <div class="top-line"></div>
     </header>
-    <!-- 여기가 NEW 배너 부분 -->
+    <!-- 배너 -->
     <div class="banner-bg">
       <div class="top-banners">
         <div class="top-banner-item">
@@ -369,11 +469,16 @@
         </div>
         <div class="top-banner-item">
           <a
-            href="http://xn--q20b96o.shop/"
+            href="http://bb-129.com/index?code=toon"
             target="_blank"
             rel="noopener"
           >
-            <img src="https://ggbam9.com/data/file/admin_banner/2890389218_aGTAwhl6_590d72a472a314c2ea7118fe14ef72bf51884ec4.jpg" alt="EVE BET 가입코드 배너" />
+            <img
+              src="img/M4.jpg"
+              alt="
+            배너"
+              style="width: 100%; height: 90px"
+            />
           </a>
         </div>
       </div>
@@ -383,9 +488,9 @@
         <iframe
           id="mainFrame"
           sandbox="allow-same-origin allow-scripts allow-forms"
-          src="https://kmana10.net"
+          src="https://cookmana.com"
           style="
-            width: 100%;
+            width: 100vw;
             min-height: 1800px;
             border: none;
             background: #fff;
@@ -394,13 +499,39 @@
         ></iframe>
       </div>
     </div>
+    <!-- 팝업 배너 HTML -->
+    <div id="popupBanner" class="popup-banner">
+      <a
+        href="http://bb-129.com/index?code=toon"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="img/ppppp.png" alt="팝업 배너" />
+      </a>
+      <button class="close-btn" onclick="closePopup()">닫기</button>
+    </div>
+    <!-- 팝업 스크립트 -->
+    <script>
+      // 팝업 띄우기 (페이지 로드 후 2초 뒤)
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("popupBanner").style.display = "flex";
+        }, 2000);
+      });
+
+      // 팝업 닫기
+      function closePopup() {
+        document.getElementById("popupBanner").style.display = "none";
+      }
+    </script>
     <script>
       function menuClick(event, url) {
         event.preventDefault();
         document.getElementById("mainFrame").src = url;
-        var links = document.querySelectorAll(".desktop-menu .menu-link");
+        // 활성화 상태 class 처리
+        var links = document.querySelectorAll(".menu-link");
         links.forEach((link) => link.classList.remove("active"));
-        event.target.classList.add("active");
+        event.currentTarget.classList.add("active");
       }
     </script>
   </body>
